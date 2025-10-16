@@ -1,0 +1,21 @@
+#bg-banner{
+    background-image: url("https://mywayemployability.au/sites/default/files/2020-06/Preparing%20for%20a%20job%20interview%20%28Medium%29.jpg");
+    height: 600px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+
+#bg-banner2{
+    background-image: url("https://cdn.sanity.io/images/anl9abaw/production/d19b3d1598411b45a28b5c6ec9b578d52cea2ed4-1920x1280.png?w=1200&q=75&fit=clip&auto=format");
+    height: 500px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
+    background-attachment: fixed;
+
+}
