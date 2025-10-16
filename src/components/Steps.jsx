@@ -22,7 +22,7 @@ import FormControl from '@mui/material/FormControl';
 import TextField from '@mui/material/TextField';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import swal from 'sweetalert';
+import Swal from "sweetalert2";
 
 
 const steps = ['Basic Information', 'Contact Details', 'Education details','Work Experience','Skills','Review & Submit'];
@@ -54,24 +54,45 @@ console.log(resumeData);
     
   }
   const handleAddResume=async()=>{
-    try{
+    // try{
         
-        const response = await addResumeAPI(resumeData);
-        console.log(response);
-        swal({
-          title: "Success!",
-          text: "Your data has been saved!",
-          icon: "success",
-          timer: 3500, //  close after 2 seconds
-          buttons: false, // Hide the Ok button
-         })
-        setisFinised(true);
+    //     const response = await addResumeAPI(resumeData);
+    //     console.log(response);
+    //     swal({
+    //       title: "Success!",
+    //       text: "Your data has been saved!",
+    //       icon: "success",
+    //       timer: 3500, //  close after 2 seconds
+    //       buttons: false, // Hide the Ok button
+    //      })
+    //     setisFinised(true);
 
-       }catch(err){
-        swal({title: "Error!",
-          text: err,
-        icon:"error"}); 
-     }
+    //    }catch(err){
+    //     swal({title: "Error!",
+    //       text: err,
+    //     icon:"error"}); 
+    //  }
+      try {
+      const response = await addResumeAPI(resumeData)
+      console.log(response);
+      Swal.fire({
+        title: 'Congrats!',
+        text: 'You have created your resume',
+        icon: 'success',
+        confirmButtonText: 'Finish'
+      })
+      setisFinised(true)
+
+    }
+    catch (err) {
+      console.log("ERROR" + err)
+      Swal.fire({
+        title: 'Error!',
+        text: 'errorMessage' + err,
+        icon: 'error',
+        confirmButtonText: 'Back'
+      })
+    }
   }
 
    const [activeStep, setActiveStep] = React.useState(0);
