@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
 import { addResumeAPI } from '../services/allAPIs';
-
+import { IoMdClose } from "react-icons/io";
 
 import IconButton from '@mui/material/IconButton';
 import Input from '@mui/material/Input';
@@ -139,6 +139,10 @@ console.log(resumeData);
   const handleReset = () => {
     setActiveStep(0);
   };
+
+    const deleteItem = (deleteSkill) => {
+    setresumeData({...resumeData,skills: resumeData.skills.filter((item)=> item != deleteSkill)});
+  };
 
   const renderSwith=(step)=>{
     switch(step){
@@ -451,7 +455,7 @@ console.log(resumeData);
   {skills.length > 0
     ? skills.map((items, index) => (
         <Button key={index} variant="contained">
-          {items}
+          {items}  <IconButton size="small" sx={{color:'red'}} onClick={() => deleteItem(items)}> <IoMdClose/></IconButton>
         </Button>
       ))
     :""}
